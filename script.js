@@ -12,3 +12,12 @@ function getComputerChoice() {
     }
 }
 console.log(getComputerChoice());
+
+function getHumanChoice() {
+    let userChoice = prompt("Choose your weapon 'rock', 'paper', or 'scissors'!", "rock/paper/scissors");
+    return userChoice;
+}
+console.log(getHumanChoice());
+
+let humanScore = 0; 
+let computerScore = 0;
