@@ -22,46 +22,43 @@ function getHumanChoice() {
 let humanScore = 0; 
 let computerScore = 0;
 
-humanChoice = getHumanChoice();
-computerChoice = getComputerChoice();
-/* console.log(humanChoice);
-console.log(computerChoice); */
+function playGame() {
+let humanSelection = getHumanChoice().toLowerCase();
+let computerSelection = getComputerChoice();
 
-let humanSelection = humanChoice.toLowerCase();
-let computerSelection = computerChoice;
+
 
 /* console.log(humanScore);
 console.log(computerScore); */
 
-console.log(playRound(humanSelection, computerSelection));
+    function playRound (humanChoice, computerChoice) {
 
-function playRound (humanChoice, computerChoice) {
-
-    if (humanSelection == computerSelection){
-        return `It is a tie! You have ${humanScore} points, your opponent has ${computerScore} points.`;
-    }
-    else if (humanSelection == "rock" && computerSelection == "scissors" ) { 
-        humanScore += 1;
-        return `You win this round! Rock breaks scissors! You have ${humanScore} points, your opponent has ${computerScore} points.`;
-    }
-    else if (humanSelection == "rock" && computerSelection == "paper" ) { 
-        computerScore += 1;
-        return `You lose this round! Paper covers rock! You have ${humanScore} points, your opponent has ${computerScore} points.`;
-    }
-    else if (humanSelection == "paper" && computerSelection == "rock" ) { 
-        humanScore += 1;
-        return `You win this round! Paper covers rock! You have ${humanScore} points, your opponent has ${computerScore} points.`;
-    }
-    else if (humanSelection == "paper" && computerSelection == "scissors" ) { 
-        computerScore += 1;
-        return `You lose this round! Scissors cuts paper! You have ${humanScore} points, your opponent has ${computerScore} points.`;
-    }
-    else if (humanSelection == "scissors" && computerSelection == "paper" ) { 
-        humanScore += 1;
-        return `You win this round! Scissors cuts paper! You have ${humanScore} points, your opponent has ${computerScore} points.`;
-    }
-    else if (humanSelection == "scissors" && computerSelection == "rock" ) {
-        computerScore += 1; 
-        return `You lose this round! Rock breaks scissors! You have ${humanScore} points, your opponent has ${computerScore} points.`;
+        if (humanSelection == computerSelection){
+            return `It is a tie! You have ${humanScore} points, your opponent has ${computerScore} points.`;
+        }
+        else if (humanSelection == "rock" && computerSelection == "scissors" ) { 
+            humanScore += 1;
+            return `You win this round! Rock breaks scissors! You have ${humanScore} points, your opponent has ${computerScore} points.`;
+        }
+        else if (humanSelection == "rock" && computerSelection == "paper" ) { 
+            computerScore += 1;
+            return `You lose this round! Paper covers rock! You have ${humanScore} points, your opponent has ${computerScore} points.`;
+        }
+        else if (humanSelection == "paper" && computerSelection == "rock" ) { 
+            humanScore += 1;
+            return `You win this round! Paper covers rock! You have ${humanScore} points, your opponent has ${computerScore} points.`;
+        }
+        else if (humanSelection == "paper" && computerSelection == "scissors" ) { 
+            computerScore += 1;
+            return `You lose this round! Scissors cuts paper! You have ${humanScore} points, your opponent has ${computerScore} points.`;
+        }
+        else if (humanSelection == "scissors" && computerSelection == "paper" ) { 
+            humanScore += 1;
+            return `You win this round! Scissors cuts paper! You have ${humanScore} points, your opponent has ${computerScore} points.`;
+        }
+        else if (humanSelection == "scissors" && computerSelection == "rock" ) {
+            computerScore += 1; 
+            return `You lose this round! Rock breaks scissors! You have ${humanScore} points, your opponent has ${computerScore} points.`;
+        }
     }
 }
