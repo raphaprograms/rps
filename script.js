@@ -1,37 +1,41 @@
-
-function getComputerChoice() {
-    spin = 10 * Math.random()
-    if (spin >= 0 && spin < 3.3) {
-        return "rock"
-    }
-    else if (spin >= 3.3 && spin < 6.6) {
-        return "paper"
-    }
-    else if (spin >= 6.6 && spin < 10) {
-        return "scissors"
-    }
-}
-/*console.log(getComputerChoice());*/
-
-function getHumanChoice() {
-    let userChoice = prompt("Choose your weapon 'rock', 'paper', or 'scissors'!", "rock/paper/scissors");
-    return userChoice;
-}
-/*console.log(getHumanChoice());*/
-
-let humanScore = 0; 
-let computerScore = 0;
+playGame();
 
 function playGame() {
-let humanSelection = getHumanChoice().toLowerCase();
-let computerSelection = getComputerChoice();
-
-
 
 /* console.log(humanScore);
 console.log(computerScore); */
+let humanScore = 0; 
+let computerScore = 0; 
 
-    function playRound (humanChoice, computerChoice) {
+
+console.log(playRound());
+console.log(playRound());
+console.log(playRound());
+console.log(playRound());
+console.log(playRound());
+
+    function playRound(humanChoice, computerChoice) {
+
+        function getComputerChoice() {
+            spin = 10 * Math.random()
+            if (spin >= 0 && spin < 3.3) {
+                return "rock"
+            }
+            else if (spin >= 3.3 && spin < 6.6) {
+                return "paper"
+            }
+            else if (spin >= 6.6 && spin < 10) {
+                return "scissors"
+            }
+        }
+        
+        function getHumanChoice() {
+            let userChoice = prompt("Choose your weapon 'rock', 'paper', or 'scissors'!", "rock/paper/scissors");
+            return userChoice.toLowerCase();
+        }
+
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
 
         if (humanSelection == computerSelection){
             return `It is a tie! You have ${humanScore} points, your opponent has ${computerScore} points.`;
