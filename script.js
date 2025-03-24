@@ -22,20 +22,20 @@ function getHumanChoice() {
 let humanScore = 0; 
 let computerScore = 0;
 
-console.log(playRound())
+humanChoice = getHumanChoice();
+computerChoice = getComputerChoice();
+/* console.log(humanChoice);
+console.log(computerChoice); */
+
+let humanSelection = humanChoice.toLowerCase();
+let computerSelection = computerChoice;
+
+/* console.log(humanScore);
+console.log(computerScore); */
+
+console.log(playRound(humanSelection, computerSelection));
 
 function playRound (humanChoice, computerChoice) {
-    humanChoice = getHumanChoice();
-    computerChoice = getComputerChoice();
-    console.log(humanChoice);
-    console.log(computerChoice);
-
-    let humanSelection = humanChoice.toLowerCase();
-    let computerSelection = computerChoice;
-
-   /* console.log(humanScore);
-    console.log(computerScore); */
-
 
     if (humanSelection == computerSelection){
         return `It is a tie! You have ${humanScore} points, your opponent has ${computerScore} points.`;
