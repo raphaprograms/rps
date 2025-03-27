@@ -1,3 +1,24 @@
+const choices = document.querySelector(".choices");
+
+const rock = document.createElement("button");
+const paper = document.createElement("button");
+const scissors = document.createElement("button");
+
+rock.classList.add("rock");
+paper.classList.add("paper");
+rock.classList.add("scissors");
+
+rock.textContent = "Rock 🪨";
+paper.textContent = "Paper 📰";
+scissors.textContent = "Scissors ✂️"
+
+choices.appendChild(rock);
+choices.appendChild(paper);
+choices.appendChild(scissors);
+
+
+
+
 playGame();
 
 function playGame() {
@@ -11,11 +32,8 @@ function playGame() {
     console.log(`Your have ${humanScore}`);
     console.log(`Computer has ${computerScore}`); 
 
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(playRound(humanSelection, computerSelection));
+    /* console.log(playRound(humanSelection, computerSelection)); */
+ 
 
     console.log(`GAME OVER. Refresh to play again. 
                 Your final score is  ${humanScore}
@@ -37,10 +55,44 @@ function playGame() {
         }
     }
 
-    function getHumanChoice() {
-        let userChoice = prompt("Choose your weapon 'rock', 'paper', or 'scissors'!", "rock").toLowerCase();
-        return userChoice;
+    function getHumanChoice(event) {
+            let target = event.target;
+        
+            switch(target.class) {
+                case 'rock':
+                    console.log('You chose ROCK!');
+                    playRound('rock', computerSelection);
+                    break;
+                case 'paper':
+                    console.log('You chose PAPER!');
+                    playRound('paper', computerSelection);
+                    break;
+                case 'scissors':
+                    console.log('You chose SCISSORS!');
+                    playRound('scissors', computerSelection);
+                    break;
+            }
+        }
     }
+
+    choices.addEventListener("click", function(event) {
+        let target = event.target;
+    
+        switch(target.class) {
+            case 'rock':
+                console.log('You chose ROCK!');
+                playRound('rock', computerSelection);
+                break;
+            case 'paper':
+                console.log('You chose PAPER!');
+                playRound('rock', computerSelection);
+                break;
+            case 'scissors':
+                console.log('You chose SCISSORS!');
+                playRound('rock', computerSelection);
+                break;
+        }
+    })
 
     function playRound(humanChoice, computerChoice) {
 
