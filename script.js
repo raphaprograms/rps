@@ -16,26 +16,6 @@ choices.appendChild(rock);
 choices.appendChild(paper);
 choices.appendChild(scissors);
 
-choices.addEventListener("click", (event) => {
-    let target = event.target;
-
-    if (target.matches('.rock')) {
-        console.log('Rock is your weapon!')
-    }
-    else if (target.matches('.paper')) {
-        console.log('Paper is your weapon!')
-    }
-    else if (target.matches('.scissors')) {
-        console.log('Scissors is your weapon!')
-    } 
-    else {
-        return;
-    }
-
-    console.log(playRound(humanSelection, computerSelection))
-});
-
-
 
 
 
@@ -43,20 +23,53 @@ choices.addEventListener("click", (event) => {
     let computerScore = 0; 
 
     let humanSelection 
-    let computerSelection 
+    let computerSelection  
 
-    console.log(`Your have ${humanScore}`);
-    console.log(`Computer has ${computerScore}`); 
+    choices.addEventListener("click", (event) => {
+        let target = event.target;
+    
+        if (target.matches('.rock')) {
+            humanSelection = 'rock';
+        }
+        else if (target.matches('.paper')) {
+            humanSelection = 'paper';
+        }
+        else if (target.matches('.scissors')) {
+            humanSelection = 'scissors';
+        } 
+        else {
+            return;
+        }
+    
+        computerSelection = getComputerChoice();
 
-    /* console.log(playRound(humanSelection, computerSelection));
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(playRound(humanSelection, computerSelection));
-    console.log(playRound(humanSelection, computerSelection)); */
+        result = playRound(humanSelection, computerSelection);
 
-    console.log(`GAME OVER. Refresh to play again. 
+        const results = document.createElement('div');
+
+        const actionStatment = document.createElement('p');
+        const roundResult = document.createElement('p');
+
+        results.appendChild(actionStatment);
+        results.appendChild(roundResult);
+
+        actionStatment.textContent = `It's time for BATTLE!!`;
+        roundResult.textContent = `${result}`;
+
+        choices.appendChild(results);
+        
+        if ((humanScore + computerScore == 5) && (humanScore > computerScore)) {
+            alert(`YOU WIN! Refresh to play again. 
                 Your final score is  ${humanScore}
-                Computer final score is ${computerScore}`); 
+                Computer final score is ${computerScore}!`)
+            }
+        else if ((humanScore + computerScore == 5) && (humanScore < computerScore)) {
+            alert(`GAME OVER. Refresh to play again. 
+                Your final score is  ${humanScore}
+                Computer final score is ${computerScore}!`)
+        }
+
+    });
 
     function getComputerChoice() {
         spin = 10 * Math.random()
@@ -74,15 +87,13 @@ choices.addEventListener("click", (event) => {
         }
     }
 
-    function getHumanChoice() {
+    /* function getHumanChoice() {
         let userChoice = prompt("Choose your weapon 'rock', 'paper', or 'scissors'!", "rock").toLowerCase();
         return userChoice;
-    }
+    } */
 
     function playRound(humanChoice, computerChoice) {
 
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
 
         if (humanSelection == computerSelection){
             return `It is a tie! 
